@@ -1,0 +1,49 @@
+  seleniumhub:
+    image: selenium/hub
+    ports:
+       - 4444:4444
+    environment:
+        - no_proxy=localhost
+
+  firefoxnode:
+    image: selenium/node-firefox-debug
+    ports:
+      - 5900
+    environment:
+        - no_proxy=localhost
+
+    links:
+      - seleniumhub:hub
+
+  chromenode:
+    image: selenium/node-chrome-debug
+    ports:
+      - 5900
+    environment:
+        - no_proxy=localhost
+    links:
+      - seleniumhub:hub
+
+  firefox3node:
+    image: selenium/node-firefox-debug:3.4.0-bismuth
+    ports:
+      - 5900
+    environment:
+        - no_proxy=localhost
+    links:
+      - seleniumhub:hub
+
+  headless:
+    image: selenium/node-phantomjs
+    links:
+      - seleniumhub:hub
+
+  webdrivertests:
+      image: vodqa/gridtests
+#      ports:
+#          - 5900:5900
+      volumes:
+            - ./temp:/usr/src/app/target
+      links:
+        - seleniumhub:localhost
+      command: bash -c "cd /usr/src/app && mvn test"

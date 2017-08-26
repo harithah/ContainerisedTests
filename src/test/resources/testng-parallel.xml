@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="suitefirefox" parallel="tests">
+    <test name="google - firefox">
+        <parameter name="browser_type" value="firefox"/>
+        <classes>
+            <class name="com.demo.crossbrowser_test.GoogleTests.GoogleTest"/>
+        </classes>
+    </test>
+    <test name="google - chrome">
+        <parameter name="browser_type" value="chrome"/>
+        <classes>
+            <class name="com.demo.crossbrowser_test.GoogleTests.GoogleTest"/>
+        </classes>
+    </test>
+    <test name="google - headless">
+        <parameter name="browser_type" value="headless"/>
+        <classes>
+            <class name="com.demo.crossbrowser_test.GoogleTests.GoogleTest"/>
+        </classes>
+    </test>
+</suite>
