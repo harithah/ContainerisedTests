@@ -19,16 +19,16 @@ public class WebDriverManager {
             DesiredCapabilities desiredCapabilities=DesiredCapabilities.chrome();
             desiredCapabilities.setCapability("version","");
             desiredCapabilities.setCapability("platform","LINUX");
-            d = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),desiredCapabilities);
+            d = new RemoteWebDriver(new URL("http://seleniumhub:4444/wd/hub"),desiredCapabilities);
         } else if (type.equals("firefox")) {
             DesiredCapabilities desiredCapabilitiesff = DesiredCapabilities.firefox();
             desiredCapabilitiesff.setCapability("version","");
             desiredCapabilitiesff.setCapability("platform","LINUX");
-            d = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),desiredCapabilitiesff   );
+            d = new RemoteWebDriver(new URL("http://seleniumhub:4444/wd/hub"),desiredCapabilitiesff   );
         } else if (type.equals("headless")) {
             DesiredCapabilities desiredCapabilitiespjs = DesiredCapabilities.phantomjs();
             desiredCapabilitiespjs.setJavascriptEnabled(true);
-            d = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),desiredCapabilitiespjs  );
+            d = new RemoteWebDriver(new URL("http://seleniumhub:4444/wd/hub"),desiredCapabilitiespjs  );
         } else {
             throw new IllegalArgumentException("Browser type not supported: " + type);
         }
@@ -41,6 +41,7 @@ public class WebDriverManager {
     }
 
     public static java.lang.String getUrl() {
+
         return "http://www.google.com";
     }
 
