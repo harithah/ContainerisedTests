@@ -32,19 +32,10 @@ public class GoogleTest {
 
     @Test
     public void testGoogleSearch() throws InterruptedException {
-        driver.findElement(By.name("q")).sendKeys("Docker selenium");
-        driver.findElement(By.cssSelector("input[value='Google Search']")).submit();
-        Thread.sleep(1000);
-        Assert.assertTrue(driver.findElement(By.cssSelector("div#resultStats")).getText().contains("results"));
-    }
-
-
-    @Test
-    public void testGoogleSearch1() throws InterruptedException {
-        driver.findElement(By.name("q")).sendKeys("vodQA");
-        driver.findElement(By.cssSelector("input[value='Google Search']")).submit();
-        Thread.sleep(1000);
-        Assert.assertTrue(driver.findElement(By.cssSelector("div#resultStats")).getText().contains("results"));
+        driver.findElement(By.name("user[name]")).sendKeys("Haritha");
+        driver.findElement(By.name("user[email]")).sendKeys("harithahari13@gmail.com");
+        driver.findElement(By.name("user[age]")).sendKeys("30");
+        driver.findElement(By.name("commit")).submit();
     }
 }
 

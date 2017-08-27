@@ -41,8 +41,7 @@ public class WebDriverManager {
     }
 
     public static java.lang.String getUrl() {
-
-        return "http://www.google.com";
+        return "http://forworkshop_user_service_web_1:3000/users/new";
     }
 
     public static void stopDriver(WebDriver driver) {
