@@ -53,7 +53,7 @@ services:
 
 
   webdrivertests:
-    image: vodqauserapp
+    image: harithahari/vodqaworkshoptests
     networks:
         - step2_default
 
