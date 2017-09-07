@@ -21,7 +21,6 @@ public class GoogleTest {
     @Parameters("browser_type")
     public void setUp( String browser_type) throws MalformedURLException {
         driver=WebDriverManager.startDriver(browser_type);
-        WebDriverManager.startBrowser(driver);
     }
 
 
@@ -31,11 +30,21 @@ public class GoogleTest {
     }
 
     @Test
-    public void testGoogleSearch() throws InterruptedException {
-        driver.findElement(By.name("user[name]")).sendKeys("Haritha");
+    public void adddNewAddress() throws InterruptedException {
+        WebDriverManager.startBrowser(driver,"http://step2_address-service-web_1:3000/addresses/new");
+        driver.findElement(By.name("address[street]")).sendKeys("STBed");
+        driver.findElement(By.name("address[city]")).sendKeys("Bangalore");
+        driver.findElement(By.name("address[state]")).sendKeys("Karnataka");
+        driver.findElement(By.name("address[zipcode]")).sendKeys("560032");
+        driver.findElement(By.name("commit")).submit();
+    }
+
+    @Test
+    public void adddNewUser() throws InterruptedException {
+        WebDriverManager.startBrowser(driver,"http://step2_user_service_web_1:3000/users/new");
+        driver.findElement(By.name("user[name]")).sendKeys("Harithah");
         driver.findElement(By.name("user[email]")).sendKeys("harithahari13@gmail.com");
         driver.findElement(By.name("user[age]")).sendKeys("30");
         driver.findElement(By.name("commit")).submit();
     }
 }
-

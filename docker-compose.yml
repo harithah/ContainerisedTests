@@ -5,7 +5,7 @@ services:
     ports:
       - 4444:4444
     networks:
-        - forworkshop_default
+        - step2_default
 
 
 
@@ -17,7 +17,7 @@ services:
         - HUB_PORT_4444_TCP_ADDR=seleniumhub
         - HUB_PORT_4444_TCP_PORT=4444
     networks:
-        - forworkshop_default
+        - step2_default
 
 
 
@@ -29,7 +29,7 @@ services:
         - HUB_PORT_4444_TCP_ADDR=seleniumhub
         - HUB_PORT_4444_TCP_PORT=4444
     networks:
-        - forworkshop_default
+        - step2_default
 
 
   firefox3node:
@@ -40,7 +40,7 @@ services:
         - HUB_PORT_4444_TCP_ADDR=seleniumhub
         - HUB_PORT_4444_TCP_PORT=4444
     networks:
-        - forworkshop_default
+        - step2_default
 
 
   headless:
@@ -49,13 +49,13 @@ services:
         - HUB_PORT_4444_TCP_ADDR=seleniumhub
         - HUB_PORT_4444_TCP_PORT=4444
     networks:
-        - forworkshop_default
+        - step2_default
 
 
   webdrivertests:
     image: vodqauserapp
     networks:
-        - forworkshop_default
+        - step2_default
 
 
     volumes:
@@ -65,5 +65,5 @@ services:
     command: bash -c "cd /usr/src/app && mvn test"
 
 networks:
-  forworkshop_default:
+  step2_default:
     external: true

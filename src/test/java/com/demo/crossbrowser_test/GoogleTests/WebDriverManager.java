@@ -35,13 +35,13 @@ public class WebDriverManager {
         return d;
     }
 
-    public static void startBrowser(WebDriver driver) {
-        driver.get(getUrl());
+    public static void startBrowser(WebDriver driver, String url) {
+        driver.get(getUrl(url));
         driver.manage().window().maximize();
     }
 
-    public static java.lang.String getUrl() {
-        return "http://forworkshop_user_service_web_1:3000/users/new";
+    public static java.lang.String getUrl(String url) {
+        return url;
     }
 
     public static void stopDriver(WebDriver driver) {
